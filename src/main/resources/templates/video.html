@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="zh-CN"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="zh-CN"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!-->
+ <!--<![endif]-->
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>video</title>
+
+    <link href="//vjs.zencdn.net/7.3.0/video-js.min.css" rel="stylesheet">
+    <link th:href="@{/css/default.css}" rel="stylesheet" />
+    <link th:href="@{/css/layout.css}" rel="stylesheet" />
+    <link th:href="@{/css/media-queries.css}" rel="stylesheet" />
+
+
+    <!-- Script
+    ================================================== -->
+    <script src="//vjs.zencdn.net/7.3.0/video.min.js"></script>
+
+</head>
+<body>
+	 <!-- Header
+   ================================================== -->
+   <header>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            <div class="logo">
+               <a th:href="@{/index.html}"><img alt="" th:src="@{/images/logo.png}"></a>
+            </div>
+
+            <nav id="nav-wrap">
+
+               <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	            <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+               <ul id="nav" class="nav">
+
+	               <li><a th:href="@{/index.html}">Home</a></li>
+	               
+                  <li class="current"><a th:href="@{/video-index.html}">Premium video</a> </li>
+	               <li><a th:href="@{/about.html}">About</a></li>
+                  
+
+               </ul> <!-- end #nav -->
+
+            </nav> <!-- end #nav-wrap -->
+
+         </div>
+
+      </div>
+
+   </header> <!-- Header End -->
+
+   <!-- Page Title
+   ================================================== -->
+   <div id="page-title">
+
+      <div class="row">
+
+         <div class="ten columns centered text-center">
+            <h1>Our Amazing Works<span>.</span></h1>
+
+            <p>Aenean condimentum, lacus sit amet luctus lobortis, dolores et quas molestias excepturi
+            enim tellus ultrices elit, amet consequat enim elit noneas sit amet luctu. </p>
+         </div>
+
+      </div>
+
+   </div> <!-- Page Title End-->
+
+
+	
+	<div class="row">
+
+		 <div class="twelve columns align-center">
+			 <br />
+             <h3 th:text="${VideoName}">default message</h3>
+			 <br />
+
+             <!-- vjs-big-play-centered可使大的播放按钮居住，vjs-fluid可使视频占满容器 -->
+             <video id="myVideo" class="video-js vjs-big-play-centered vjs-fluid">
+                 <p class="vjs-no-js">
+                     To view this video please enable JavaScript, and consider upgrading to a
+                     web browser that
+                     <a href="https://videojs.com/html5-video-support/" target="_blank">
+                         supports HTML5 video
+                     </a>
+                 </p>
+             </video>
+
+             <br />
+             <div align="left" id="ChooseEpisodes">
+                 <p>选集</p>
+
+             </div>
+
+             <br />
+         </div>
+
+	</div>
+
+     <div class="row" align="left">
+         <h5 >相关资料下载</h5>
+         <a  th:href="@{'/file/download?fileName='+${AssociatedFileName}}" rel="nofollow" target="_blank">
+             <p th:text="${AssociatedFileName}">点击下载</p>
+         </a>
+     </div>
+
+
+	
+	<!-- Tweets Section
+   ================================================== -->
+   <section id="tweets">
+
+      <div class="row">
+
+         <div class="tweeter-icon align-center">
+			 <i class="fa fa-lemon-o"></i>
+		  </div>
+
+         <ul id="twitter" class="align-center">
+            <li>
+               <span>
+               This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+               Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum
+               <a href="#">http://t.co/CGIrdxIlI3</a>
+               </span>
+               <b><a href="#">2 Days Ago</a></b>
+            </li>
+            <!--
+            <li>
+               <span>
+               This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+               Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum
+               <a href="#">http://t.co/CGIrdxIlI3</a>
+               </span>
+               <b><a href="#">3 Days Ago</a></b>
+            </li>
+            -->
+         </ul>
+
+         
+
+      </div>
+
+   </section> <!-- Tweet Section End-->
+
+   <!-- footer
+   ================================================== -->
+   <footer>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+             <ul class="footer-nav">
+					<li><a th:href="@{/index.html}">Home.</a></li>
+             
+              	<li><a th:href="@{/video-index.html}">Premium video.</a></li>
+              	<li><a th:href="@{/about.html}">About.</a></li>
+              	
+			   </ul>
+
+           
+
+            <ul class="copyright">
+               <li>Copyright &copy; 2021 </li>             
+            </ul>
+
+         </div>
+
+         <div id="go-top" style="display: block;"><a title="Back to Top" href="#">Go To Top</a></div>
+      </div>
+
+   </footer> <!-- Footer End-->
+
+   <!-- Java Script
+   ================================================== -->
+
+     <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+     <script type="text/javascript" th:src="@{/js/doubletaptogo.js}"></script>
+     <script>window.jQuery || document.write('<script th:src="@{/js/jquery-3.3.1.min.js}"><\/script>')</script>
+     <script type="text/javascript" th:src="@{/js/init.js}"></script>
+     <script type="text/javascript" th:src="@{/js/jquery.flexslider.js}"></script>
+     <script type="text/javascript" th:src="@{/js/jquery-migrate-1.2.1.min.js}"></script>
+     <script type="text/javascript" th:inline="javascript">
+         <!--接收值-->
+
+         var VideoPath = [[${VideoPath}]];
+         var PosterPath = [[${PosterPath}]];
+         var Episodes = [[${Episodes}]];
+         var VideoId = [[${VideoId}]];
+
+         var player = videojs(document.getElementById('myVideo'), {
+             controls: true, // 是否显示控制条
+             poster: PosterPath, // 视频封面图地址
+             preload: 'auto',
+             autoplay: false,
+             fluid: true, // 自适应宽高
+             language: 'zh-CN', // 设置语言
+             muted: false, // 是否静音
+             inactivityTimeout: false,
+             controlBar: { // 设置控制条组件
+                 /* 设置控制条里面组件的相关属性及显示与否
+                 'currentTimeDisplay':true,
+                 'timeDivider':true,
+                 'durationDisplay':true,
+                 'remainingTimeDisplay':false,
+                 volumePanel: {
+                   inline: false,
+                 }
+
+                 /* 使用children的形式可以控制每一个控件的位置，以及显示与否 */
+                 children: [
+                     {name: 'playToggle'}, // 播放按钮
+                     {name: 'currentTimeDisplay'}, // 当前已播放时间
+                     {name: 'progressControl'}, // 播放进度条
+                     {name: 'durationDisplay'}, // 总时间
+                     { // 倍数播放
+                         name: 'playbackRateMenuButton',
+                         'playbackRates': [0.5, 1, 1.5, 2, 2.5]
+                     },
+                     {
+                         name: 'volumePanel', // 音量控制
+                         inline: false, // 不使用水平方式
+                     },
+                     {name: 'FullscreenToggle'} // 全屏
+                 ]
+             },
+             sources:[ // 视频源
+                 {
+                     src: VideoPath,
+                     type: 'video/mp4',
+                     poster: PosterPath
+                 }
+             ]
+         }, function (){
+             console.log('视频可以播放了',this);
+         });
+
+         var operate_div = document.getElementById("ChooseEpisodes");
+
+         setButton();
+
+         function setButton() {
+             for (var i = 1; i <= Episodes; i++) {
+                 var input_ly = document.createElement("input");
+                 input_ly.type = "button";
+                 input_ly.setAttribute("class","button");
+                 input_ly.setAttribute("left","12px");
+                 input_ly.setAttribute("font-size","13px");
+                 input_ly.setAttribute("height","22px");
+                 input_ly.setAttribute("value","第"+i+"集");
+                 input_ly.onclick=(function (i) {//绑定点击事件
+                     return function () {
+                         location.href = i;
+                     };
+                 })(i);
+                 operate_div.appendChild(input_ly);
+             }
+             input_ly=null;
+         }
+
+     </script>
+
+</body>
+</html>

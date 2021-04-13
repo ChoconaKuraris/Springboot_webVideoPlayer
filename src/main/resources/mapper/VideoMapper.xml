@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eow.education.mapper.VideoMapper">
+
+    <resultMap id="BaseResultMap" type="com.eow.education.entity.Video">
+        <result column="VideoId" jdbcType="INTEGER" property="VideoId" />
+        <result column="VideoName" jdbcType="VARCHAR" property="VideoName" />
+        <result column="VideoPath" jdbcType="VARCHAR" property="VideoPath" />
+        <result column="VideoPoster" jdbcType="VARCHAR" property="VideoPoster" />
+        <result column="Episodes" jdbcType="INTEGER" property="Episodes" />
+        <result column="AssociatedFileName" jdbcType="VARCHAR" property="AssociatedFileName" />
+    </resultMap>
+
+    <select id="getVideoById"  resultMap ="BaseResultMap">
+              select * from video where VideoId=#{id}
+     </select>
+
+</mapper>
